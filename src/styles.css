@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --BG-COLOR: #f9f9f9;
+    --BLUE: #027fc8;
+    --GREY: #606e79;
+    --GREY-DARK: #262626;
+    --GREY-LIGHT: #dfe4e8;
+    --WHITE: #fff;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.container {
+    display: flex;
+    padding: 0 35px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+    flex-flow: wrap;
+}
+
+.wrapper {
+    display: flex;
+    max-width: 1200px;
+    position: relative;
+    overflow: hidden;
+}
+
+.wrapper .carousel {
+    font-size: 0px;
+    cursor: pointer;
+    overflow: hidden;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+}
+
+.carousel.dragging {
+    cursor: grab;
+    scroll-behavior: auto;
+}
+
+.title_desktop,
+.title_phone {
+    font-weight: 100;
+    text-align: center;
+    margin-top: 8rem;
+}
+
+.title_phone {
+    display: none;
+}
+
+.item {
+    display: inline-block;
+    max-width: 300px;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 0px 10px;
+    background-color: var(--BG-COLOR);
+}
+
+.item_img img {
+    width: 100%;
+}
+
+.item_description {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 16px;
+}
+
+.item_description_price {
+    color: var(--GREY);
+    font-size: 14px;
+}
+
+.item_btn {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.item_btn button {
+    border: 0;
+    background: var(--BLUE);
+    border-radius: 30px;
+    padding: 10px 30px;
+    color: var(--WHITE);
+}
+
+.carousel.dragging .item {
+    pointer-events: none;
+}
+
+.carousel .item {
+    width: calc((100% / 4) - 15px);
+}
+
+.carousel .item:first-child {
+    margin-left: 0px;
+}
+
+.position_indicator {
+    margin-top: 40px;
+    margin-bottom: 100px;
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+
+.position_indicator_outer {
+    background-color: var(--GREY-LIGHT);
+    height: 5px;
+    width: 150px;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.position_indicator_inner {
+    width: 40px;
+    background-color: var(--GREY-DARK);
+    height: 5px;
+    margin-left: -20px;
+    border-radius: 20px;
+}
+
+@media screen and (max-width: 992px) {
+    .position_indicator {
+        display: flex;
+    }
+
+    .title_phone {
+        display: block;
+    }
+
+    .title_desktop {
+        display: none;
+    }
+
+    .carousel .item {
+        width: calc(100% / 2);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .carousel .item {
+        width: 100%;
+    }
+}
